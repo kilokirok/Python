@@ -1,0 +1,37 @@
+#James
+
+def txt3():
+  fn = ""
+  while fn <> "quit":
+    fn = input("Enter path and file name (with quote): ")
+    if fn == "quit":
+      print "Program ended.."
+      break
+    file = open(fn)
+    data = file.read()
+  
+    pile1 = 0
+    pile2 = 0
+    pile3 = 0
+    pile4 = 0
+    #The num of lines
+    sentence = data.split("\n")
+    for i in sentence:
+      pile1 += 1
+    TotalL = len(sentence)-1
+    #The num of chars
+    TotalC = len(data)
+    #The num of cons
+    for i in data:
+      if i.upper() not in "AEIOU" and ord(i.upper()) in range(65,91,1):
+        pile2 += 1
+    #The num of lower
+    for i in data:
+      if ord(i) in range(97,123,1):
+        pile3 += 1
+    #The num of upper
+      elif ord(i) in range(65,91,1):
+        pile4 += 1
+    TotalLT = pile3 + pile4
+  
+    print "The file contains", pile1, "lines,", TotalC, "characters,", pile2, "consonants and", TotalLT, "letters."
